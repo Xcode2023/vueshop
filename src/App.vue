@@ -31,6 +31,9 @@ if (isMobileDevice()) {
   Device = false;
 } else {
   Device = true;
+  console.log(Device);
+  
+  
 }
 </script>
 
