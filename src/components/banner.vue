@@ -14,7 +14,7 @@
       <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item  ">
+      <div class="carousel-item   ">
         <img src="..." class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
