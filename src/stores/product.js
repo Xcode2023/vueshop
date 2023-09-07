@@ -189,6 +189,24 @@ export const useProdcutStore = defineStore("product", () => {
       class: "",
     },
   ]);
+  const bannerImgList=reactive(
+
+    {
+      img:'https://pic.imgdb.cn/item/62c439b75be16ec74a000429.png'
+    },
+    {
+      img:'https://pic.imgdb.cn/item/62c439b55be16ec74afffef0.jpg'
+    },
+    {
+      img:'https://pic.imgdb.cn/item/6304767216f2c2beb1929f0d.png'
+    },
+    {
+      img:'https://pic.imgdb.cn/item/62c439b65be16ec74a0001e8.png'
+    },
+    {
+      img:'images/alpha/womanbanner.png'
+    },
+  )
   return {
     routerArray1,
     logoname,
@@ -196,6 +214,6 @@ export const useProdcutStore = defineStore("product", () => {
     routerArray3,
     altname,
     titlename,
-    indexImgList,
+    indexImgList,bannerImgList
   };
 });
