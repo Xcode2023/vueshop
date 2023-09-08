@@ -1,5 +1,6 @@
 <template>
   <section>
+<banner />
   </section>
 
   <img
@@ -17,13 +18,12 @@
 </template>
 <script setup>
 import { reactive } from "vue";
-// import banner from "@/components/banner.vue";
+import banner from "@/components/banner.vue";
 import { useProdcutStore } from "@/stores/product.js";
 import { storeToRefs } from "pinia";
 
 const productStore = storeToRefs(useProdcutStore());
 
 const { altname, titlename, indexImgList } = productStore;
-console.log(indexImgList[0]);
 
 </script>
