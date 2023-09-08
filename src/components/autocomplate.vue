@@ -1,57 +1,55 @@
 <template>
-    <el-autocomplete
-      v-model="state"
-      :fetch-suggestions="querySearchAsync"
-      placeholder="Please input"
-      @select="handleSelect"
-    />
-  </template>
-  
-  <script setup>
-  import { onMounted, ref } from 'vue'
-  
-  const state = ref('')
-  
+  <el-autocomplete
+    v-model="state"
+    :fetch-suggestions="querySearchAsync"
+    placeholder="Please input"
+    @select="handleSelect"
+    class=" me-2"
+  />
+</template>
 
-  let timeout=1000
-  const links = ref([])
-  
-  const loadAll = () => {
-    return [
-      { value: 'vue', link: 'https://github.com/vuejs/vue' },
-      { value: 'element', link: 'https://github.com/ElemeFE/element' },
-      { value: 'cooking', link: 'https://github.com/ElemeFE/cooking' },
-      { value: 'mint-ui', link: 'https://github.com/ElemeFE/mint-ui' },
-      { value: 'vuex', link: 'https://github.com/vuejs/vuex' },
-      { value: 'vue-router', link: 'https://github.com/vuejs/vue-router' },
-      { value: 'babel', link: 'https://github.com/babel/babel' },
-    ]
-  }
-  
-  const querySearchAsync = (queryString,cb) => {
-    const results = queryString
-      ? links.value.filter(createFilter(queryString))
-      : links.value
-  
-    clearTimeout(timeout)
-    timeout = setTimeout(() => {
-      cb(results)
-    }, 3000 * Math.random())
-  }
-  const createFilter = (queryString) => {
-    return (restaurant => {
-      return (
-        restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
-      )
-    })
-  
+<script setup>
+import { onMounted, ref } from 'vue'
+import {useCounterStore} from '@/stores/autocomplate.js'
+import {useRouter} from 'vue-router'
+const state = ref('')
+const router=useRouter()
+
+
+const counter1=useCounterStore()
+const {autoCounterArray} =counter1
+let timeout
+const links = ref([])
+
+const loadAll = () => {
+  return autoCounterArray
 }
-  const handleSelect = (item) => {
-    console.log(item)
-  }
-  
-  onMounted(() => {
-    links.value = loadAll()
+
+const querySearchAsync = (queryString,cb) => {
+  const results = queryString
+    ? links.value.filter(createFilter(queryString))
+    : links.value
+
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    cb(results)
+  }, 3000 * Math.random())
+}
+const createFilter = (queryString) => {
+  return (restaurant => {
+    return (
+      restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
+    )
   })
-  </script>
-  
+
+}
+const handleSelect = (item) => {
+  console.log(item)
+  router.push(item.link)
+
+}
+
+onMounted(() => {
+  links.value = loadAll()
+})
+</script>

@@ -12,13 +12,37 @@ export const useProdcutStore = defineStore("product", () => {
       name: "产品展示",
       img: "",
       txt: "",
-      to: "",
+      to: "/productShow",
+      children: [
+        {
+          name: "企业信仰",
+          to: "",
+        },
+        {
+          name: "新闻中心",
+          to: "",
+        },
+      ],
     },
     {
       name: "N&A颜究室",
       img: "",
       txt: "",
       to: "",
+      children: [
+        {
+          name: "欧石楠",
+          to: "",
+        },
+        {
+          name: "乳酸菌",
+          to: "",
+        },
+        {
+          name: "乳酸菌",
+          to: "",
+        },
+      ],
     },
     {
       name: "产品总览",
@@ -177,6 +201,7 @@ export const useProdcutStore = defineStore("product", () => {
       img: "https://pic.imgdb.cn/item/62fc78e116f2c2beb16e1e48.png",
 
       class: " d-none d-sm-block d-xs-block d-md-none d-lg-none",
+      name: "小屏幕",
     },
     {
       img: "https://pic.imgdb.cn/item/62c439b65be16ec74a0001e2.png",
@@ -189,26 +214,25 @@ export const useProdcutStore = defineStore("product", () => {
       class: "",
     },
   ]);
-  const bannerImgList=reactive([
+  const bannerImgList = reactive([
+    {
+      img: "https://pic.imgdb.cn/item/62c439b75be16ec74a000429.png",
+    },
+    {
+      img: "https://pic.imgdb.cn/item/62c439b55be16ec74afffef0.jpg",
+    },
+    {
+      img: "https://pic.imgdb.cn/item/6304767216f2c2beb1929f0d.png",
+    },
+    {
+      img: "https://pic.imgdb.cn/item/62c439b65be16ec74a0001e8.png",
+    },
+    {
+      img: "images/alpha/womanbanner.png",
+    },
+  ]);
 
-    {
-      img:'https://pic.imgdb.cn/item/62c439b75be16ec74a000429.png'
-    },
-    {
-      img:'https://pic.imgdb.cn/item/62c439b55be16ec74afffef0.jpg'
-    },
-    {
-      img:'https://pic.imgdb.cn/item/6304767216f2c2beb1929f0d.png'
-    },
-    {
-      img:'https://pic.imgdb.cn/item/62c439b65be16ec74a0001e8.png'
-    },
-    {
-      img:'images/alpha/womanbanner.png'
-    },
-  ])
-
-  const newimg='images/alpha/womanbanner.png'
+  const newimg = "images/alpha/womanbanner.png";
   return {
     routerArray1,
     logoname,
@@ -216,6 +240,8 @@ export const useProdcutStore = defineStore("product", () => {
     routerArray3,
     altname,
     titlename,
-    indexImgList,bannerImgList,newimg
+    indexImgList,
+    bannerImgList,
+    newimg,
   };
 });

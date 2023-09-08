@@ -1,6 +1,6 @@
 <template>
-  <el-alert type="warning" effect="light" show-icon closable
-    >此页面为手机端浏览，内容有限，为展示完美视觉效果请移步桌面端——Odwr欧德薇儿</el-alert
+  <el-alert type="warning" effect="light" show-icon closable class=" d-sm-block d-xs-block d-md-none d-lg-none   "
+    >此页面为手机端浏览,内容有限,为展示完美视觉效果请移步桌面端——Odwr欧德薇儿</el-alert
   >
   <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-center">
     <div class="container">
@@ -19,62 +19,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-          <li class="nav-item">
-            <router-link class="nav-link" aria-current="page" to="/about"
-              >产品展示</router-link
-            >
-          </li>
-
-          <li class="nav-item text-center">
-            <el-dropdown :hide-on-click="false" class="nav-link">
-              <span class="el-dropdown-link"> N&A颜究室 </span>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item v-for="(x, y) in array3" :key="y" divided
-                    ><router-link :to="x.to" class="dropdown-item text-center">
-                      <p>{{ x.name }}</p>
-                    </router-link>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
-          </li>
-          <li class="nav-item text-center">
-            <el-dropdown :hide-on-click="false" class="nav-link">
-              <span class="el-dropdown-link"> 产品总览 </span>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item v-for="(x, y) in array2" :key="y" divided
-                    ><router-link :to="x.to" class="dropdown-item text-center">
-                      <p>{{ x.name }}</p>
-                    </router-link>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
-          </li>
-
-          <li class="nav-item d-sm-none k d-lg-block d-xxl-block">
-            <router-link to="" class="nav-link disabled">|</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="#"> 企业文化</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="#">刷酶报价</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="" class="nav-link">联系我们</router-link>
-          </li>
-        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center " >
+       
+        <li class="nav-item dropdown text-center" v-for='(x,y) in routerArray1' :key='y'   >
+          <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{x.name}}
+          </a>
+          <ul class="dropdown-menu " v-for='(z,y) of x' :key='y'   >
+            <li><a class="dropdown-item" href="#"></a>{{ x }}</li>
+           
+          </ul>
+        </li>
+      
+      </ul>
         <form class="d-flex">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="搜索"
-            aria-label="Search"
-          />
+     <searsh />
+
           <button class="btn btn-outline-success" type="submit">
             <i class="bi bi-search"></i>
           </button>
@@ -82,7 +42,6 @@
       </div>
     </div>
   </nav>
-  <img  alt="">
 </template>
 <script setup>
 import { ref, watch } from "vue";
@@ -95,7 +54,6 @@ const { x, y, isScrolling, arrivedState, directions } = useScroll(window);
 const productStore = storeToRefs(useProdcutStore());
 const { routerArray1, newimg,routerArray2, routerArray3, logoname } = productStore;
 watch(y, (v) => {
-  console.log(v);
 });
 
 const logo = ref(img1);

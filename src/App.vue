@@ -4,8 +4,7 @@
       gsap
     </h2>
     <div>
-      <largeNav v-if="Device"></largeNav>
-      <Header v-else></Header>
+      <Header></Header>
       <div>
         <router-view ref="rel"></router-view>
       </div>

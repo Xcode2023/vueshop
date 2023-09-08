@@ -3,7 +3,7 @@
 <banner />
   </section>
 
-  <img
+  <!-- <img
     v-for="(x, y) in indexImgList"
     :key="y"
     :src="x.img"
@@ -11,7 +11,7 @@
     :title="titlename"
     class="img-fluid w-100"
     :class="x.class"
-  />
+  /> -->
   <section>
  
   </section>
