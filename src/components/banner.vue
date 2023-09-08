@@ -1,8 +1,8 @@
 <template>
   <el-carousel trigger="click" height="150px">
-    <el-carousel-item v-for="(x, y) in bannerImgList" :key="y">
+    <!-- <el-carousel-item v-for="(x, y) in bannerImgList" :key="y">
     <img :src="x.img" alt="">
-    </el-carousel-item>
+    </el-carousel-item> -->
   </el-carousel>
 </template>
 <script setup>

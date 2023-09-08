@@ -207,6 +207,8 @@ export const useProdcutStore = defineStore("product", () => {
       img:'images/alpha/womanbanner.png'
     },
   )
+
+  const newimg='images/alpha/womanbanner.png'
   return {
     routerArray1,
     logoname,
@@ -214,6 +216,6 @@ export const useProdcutStore = defineStore("product", () => {
     routerArray3,
     altname,
     titlename,
-    indexImgList,bannerImgList
+    indexImgList,bannerImgList,newimg
   };
 });

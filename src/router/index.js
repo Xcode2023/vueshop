@@ -28,6 +28,11 @@ const router = createRouter({
       component: () => import("@/components/Header/template.vue"),
       props: true,
     },
+    {
+      path: "/test",
+      component: () => import("@/pages/test/index.vue"),
+      props: true,
+    },
   ],
 });
 

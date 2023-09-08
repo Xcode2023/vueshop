@@ -82,16 +82,18 @@
       </div>
     </div>
   </nav>
+  <img  alt="">
 </template>
 <script setup>
 import { ref, watch } from "vue";
 import img1 from "@/images/alpha/logo.png";
+import searsh from '../autocomplate.vue'
 import { storeToRefs } from "pinia";
 import { useScroll } from "@vueuse/core";
 import { useProdcutStore } from "@/stores/product.js";
 const { x, y, isScrolling, arrivedState, directions } = useScroll(window);
 const productStore = storeToRefs(useProdcutStore());
-const { routerArray1, routerArray2, routerArray3, logoname } = productStore;
+const { routerArray1, newimg,routerArray2, routerArray3, logoname } = productStore;
 watch(y, (v) => {
   console.log(v);
 });

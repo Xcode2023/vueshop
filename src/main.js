@@ -21,7 +21,7 @@ import TDesign from "tdesign-vue-next";
 import "tdesign-vue-next/es/style/index.css";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "bootstrap";
+
 
 const app = createApp(App);
 app.config.globalProperties.axios = axios;
