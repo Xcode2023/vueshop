@@ -25,7 +25,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 const app = createApp(App);
 app.config.globalProperties.axios = axios;
-app.use(TDesign);
+// app.use(TDesign);
 app.use(createPinia());
 app.use(router);
 app.use(ElementPlus);
