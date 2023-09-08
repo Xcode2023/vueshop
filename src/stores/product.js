@@ -189,7 +189,7 @@ export const useProdcutStore = defineStore("product", () => {
       class: "",
     },
   ]);
-  const bannerImgList=reactive(
+  const bannerImgList=reactive([
 
     {
       img:'https://pic.imgdb.cn/item/62c439b75be16ec74a000429.png'
@@ -206,7 +206,7 @@ export const useProdcutStore = defineStore("product", () => {
     {
       img:'images/alpha/womanbanner.png'
     },
-  )
+  ])
 
   const newimg='images/alpha/womanbanner.png'
   return {

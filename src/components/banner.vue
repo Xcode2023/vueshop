@@ -11,7 +11,7 @@ import {onMounted } from 'vue'
 const store1 = useProdcutStore();
   const { bannerImgList } = store1;
 
-  console.log(bannerImgList );
+  console.log(bannerImgList);
 
 onMounted(() => {
 
