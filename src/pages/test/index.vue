@@ -1,40 +1,32 @@
 <template>
-  <main><canvas id="canvas3d" ref="canvas"></canvas></main>
+  <main ref="box"><canvas id="canvas3d" ref="canvas"></canvas></main>
 </template>
 <script setup>
-import {ref,onMounted} from 'vue'
-// import * as es from './spline/esmodule.js'
-// import module from 'P/spline/rabbit.spline'
+import { ref, onMounted } from "vue";
 import { Application } from "@splinetool/runtime";
 
-import gsap from 'gsap'
+import gsap from "gsap";
+import Parallax from "parallax-js";
+const box = ref();
 
-import ScrollTrigger from 'gsap/ScrollTrigger'
+// import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const animate1=()=>{
-gsap.from(canvas.value,{
-  y:-30,
-  opacity:0,
-  rotation:30
-})
+const animate1 = () => {
+  gsap.from(canvas.value, {
+    y: -30,
+    opacity: 0,
+    rotation: 30,
+  });
+};
 
-  // ScrollTrigger.create(
-  //   {
-
-  //   }
-  // )
-}
-
-const canvas = ref(null)
-onMounted(()=> {
+const canvas = ref(null);
+onMounted(() => {
   const app = new Application(canvas.value);
   app.load("public/spline/rabbit.spline");
-  setTimeout(() => {
-      animate1()
-
-  }, 3000);
-})
-
-
+  const parallaxInstance = new Parallax(box.value, {
+    relativeInput: true,
+  });
+  parallaxInstance.friction(0.2, 0.2);
+});
 </script>
 <style scoped></style>

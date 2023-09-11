@@ -1,8 +1,5 @@
 <template>
   <div class="app">
-    <h2 class="fs-2 text-center" style="position: fixed; top: 0; left: 0">
-      gsap
-    </h2>
     <div>
       <Header></Header>
       <div>
