@@ -1,79 +1,46 @@
 <template>
   <div>
-    <section
-      ref="container"
-      class="w-100 box vw-100 vh-100"
-      id="webgi-canvas"
-    ></section>
-  </div>
+  <div ref="webgiCanvasContainer" id="webgi-canvas-container">
+    <canvas ref="webgiCanvas" id="webgi-canvas"></canvas>
+    <button  @click="animateStart()" type="button" id="animate" class="btn btn-outline-primary">
+      Primary
+    </button>
+  </div></div>
 </template>
 <script setup>
+
+
 import { onMounted, ref } from "vue";
-const container = ref();
-import {
-  ViewerApp,
-  AssetManagerPlugin,
-  timeout,
-  TonemapPlugin,
-  addBasePlugins,
-  TweakpaneUiPlugin,
-  AssetManagerBasicPopupPlugin,
-  CanvasSnipperPlugin,
 
-  // Color, // Import THREE.js internals
-  // Texture, // Import THREE.js internals
-} from "./bundle.m.js";
-async function setupViewer() {
-  // Initialize the viewer
-  const viewer = new ViewerApp({
-    canvas: document.getElementById("webgi-canvas"),
-  });
+import {setupViewer} from './webgi.js'
+const webgiCanvasContainer=ref()
+const webgiCanvas=ref()
+let position, target;
+import { animationFuntion } from "./animate.js";
 
-  // Add some plugins
-  const manager = await viewer.addPlugin(AssetManagerPlugin);
+onMounted(()=>{
+setupViewer(webgiCanvas.value)
+//  console.log(webgiCanvas.value);
+console.log('First',position,target);
 
-  // Add a popup(in HTML) with download progress when any asset is downloading.
-  await viewer.addPlugin(AssetManagerBasicPopupPlugin);
+} )
 
-  // Add plugins individually.
-  // await viewer.addPlugin(GBufferPlugin)
-  // await viewer.addPlugin(new ProgressivePlugin(32))
-  // await viewer.addPlugin(new TonemapPlugin(!viewer.useRgbm))
-  // await viewer.addPlugin(GammaCorrectionPlugin)
-  // await viewer.addPlugin(SSRPlugin)
-  // await viewer.addPlugin(SSAOPlugin)
-  // await viewer.addPlugin(DiamondPlugin)
-  // await viewer.addPlugin(FrameFadePlugin)
-  // await viewer.addPlugin(GLTFAnimationPlugin)
-  // await viewer.addPlugin(GroundPlugin)
-  // await viewer.addPlugin(BloomPlugin)
-  // await viewer.addPlugin(TemporalAAPlugin)
-  // await viewer.addPlugin(AnisotropyPlugin)
-  // and many more...
 
-  // or use this to add all main ones at once.
-  await addBasePlugins(viewer);
-
-  // Add more plugins not available in base, like CanvasSnipperPlugin which has helpers to download an image of the canvas.
-  await viewer.addPlugin(CanvasSnipperPlugin);
-
-  // This must be called once after all plugins are added.
-  viewer.renderer.refreshPipeline();
-
-  // Import and add a GLB file.
-  await viewer.load("../../../public/free_iphone_13_pro_2021/scene.gltf");
-
-  // Load an environment map if not set in the glb file
-  // await viewer.setEnvironmentMap((await manager.importer!.importSinglePath<ITexture>("./assets/environment.hdr"))!);
-
-  // Add some UI for tweak and testing.
-  const uiPlugin = await viewer.addPlugin(TweakpaneUiPlugin);
-  // Add plugins to the UI to see their settings.
-  uiPlugin.setupPlugins < IViewerPlugin > (TonemapPlugin, CanvasSnipperPlugin);
+const animateStart=function(){  animationFuntion(position, target);
 }
-onMounted(() => {
-  setupViewer();
-});
-
-setupViewer();
 </script>
+<style scoped>
+#webgi-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+#webgi-canvas-container {
+  width: 80vw;
+  height: 80vh;
+  margin: 10vh 10vw;
+  border-radius: 0.5rem;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+</style>
