@@ -95,5 +95,4 @@ const gui = new dat.GUI();
   // uiPlugin.setupPlugins<IViewerPlugin>(TonemapPlugin, CanvasSnipperPlugin);
   return position, target;
 }
-console.log(position,target);
 

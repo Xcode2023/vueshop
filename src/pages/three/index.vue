@@ -18,21 +18,21 @@ const webgiCanvas=ref()
 let position, target;
 import { animationFuntion } from "./animate.js";
 
-onMounted(()=>{
-setupViewer(webgiCanvas.value)
+
+onMounted(async()=>{
+const getPosition= await setupViewer(webgiCanvas.value)
+console.log(getPosition);
+
+
 //  console.log(webgiCanvas.value);
-console.log('First',position,target);
+const animateStart=function(){  animationFuntion(getPosition.position, getPosition.target);
+}
 
 } )
-const animateStart=function(){  animationFuntion(position, target);
-}
+
 </script>
 <style scoped>
-#webgi-canvas {
-  width: 100%;
-  height: 100%;
-  border-radius: 0.5rem;
-}
+
 #webgi-canvas-container {
   width: 80vw;
   height: 80vh;
