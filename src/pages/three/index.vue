@@ -37,7 +37,7 @@ onMounted(async () => {
 
   postion = getPosition.position;
   target = postion.target;
-  //  console.log(webgiCanvas.value);
+
 });
 const animateStart = function () {
   animationFuntion(position, target);
