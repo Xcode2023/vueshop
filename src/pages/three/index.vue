@@ -1,7 +1,7 @@
 <template>
   <div>
   <div ref="webgiCanvasContainer" id="webgi-canvas-container">
-    <canvas ref="webgiCanvas" id="webgi-canvas"></canvas>
+    <canvas class="w-100 h-100 rounded-2  " ref="webgiCanvas" id="webgi-canvas"></canvas>
     <button  @click="animateStart()" type="button" id="animate" class="btn btn-outline-primary">
       Primary
     </button>
@@ -24,8 +24,6 @@ setupViewer(webgiCanvas.value)
 console.log('First',position,target);
 
 } )
-
-
 const animateStart=function(){  animationFuntion(position, target);
 }
 </script>

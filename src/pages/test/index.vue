@@ -23,10 +23,10 @@ const canvas = ref(null);
 onMounted(() => {
   const app = new Application(canvas.value);
   app.load("public/spline/rabbit.spline");
-  const parallaxInstance = new Parallax(box.value, {
-    relativeInput: true,
-  });
-  parallaxInstance.friction(0.2, 0.2);
+  // const parallaxInstance = new Parallax(box.value, {
+  //   relativeInput: true,
+  // });
+  // parallaxInstance.friction(0.2, 0.2);
 });
 </script>
 <style scoped></style>
