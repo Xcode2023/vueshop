@@ -9,7 +9,7 @@ import gsap from "gsap";
 import Parallax from "parallax-js";
 const box = ref();
 
-// import ScrollTrigger from 'gsap/ScrollTrigger'
+
 
 const animate1 = () => {
   gsap.from(canvas.value, {
