@@ -4,11 +4,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { Application } from "@splinetool/runtime";
-
 import gsap from "gsap";
 import Parallax from "parallax-js";
 const box = ref();
-
 
 
 const animate1 = () => {
