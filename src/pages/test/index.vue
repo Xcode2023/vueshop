@@ -1,30 +1,16 @@
 <template>
-  <main ref="box"><canvas id="canvas3d" ref="canvas"></canvas></main>
+  <h1 class="display-1 text-center">{{ $t('messages.welcome') }}</h1>
+  <div></div>
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { Application } from "@splinetool/runtime";
-import gsap from "gsap";
-import Parallax from "parallax-js";
-const box = ref();
 
+import { useI18n } from "vue-i18n";
 
-const animate1 = () => {
-  gsap.from(canvas.value, {
-    y: -30,
-    opacity: 0,
-    rotation: 30,
-  });
-};
-
-const canvas = ref(null);
+const { t } = useI18n();
 onMounted(() => {
-  const app = new Application(canvas.value);
-  app.load("public/spline/rabbit.spline");
-  // const parallaxInstance = new Parallax(box.value, {
-  //   relativeInput: true,
-  // });
-  // parallaxInstance.friction(0.2, 0.2);
-});
+  console.log(t("messages.welcome"));
+
+})
 </script>
 <style scoped></style>

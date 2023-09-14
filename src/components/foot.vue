@@ -22,7 +22,7 @@
         <main class="col-md-7 lh-lg">
           <p>
             <i class="bi bi-shield-fill-check"></i>
-            ICP备案信息:赣ICP备2022002789
+            ICP备案信息:粤ICP备2022002789
           </p>
           <p>
             <i class="bi bi-clipboard2-check-fill"></i> 公安备案信息:

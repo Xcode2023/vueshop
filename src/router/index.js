@@ -33,6 +33,11 @@ const router = createRouter({
       component: () => import("@/pages/test/index.vue"),
       props: true,
     },
+    {
+      path: "/spline",
+      component: () => import("@/pages/spline/index.vue"),
+      props: true,
+    },
   ],
 });
 

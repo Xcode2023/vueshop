@@ -10,7 +10,7 @@
   <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-center">
     <div class="container">
       <router-link class="navbar-brand" to="/"
-        ><img :src="logo" ref="el" alt="" style="width: 140px"
+        ><img src="public/images/alpha/logo.png" ref="el" alt="" style="width: 140px"
       /></router-link>
       <button
         class="navbar-toggler"
@@ -88,7 +88,7 @@
 </template>
 <script setup>
 import { ref, watch } from "vue";
-import img1 from "@/images/alpha/logo.png";
+
 import searsh from "../autocomplate.vue";
 import { storeToRefs } from "pinia";
 import { useScroll } from "@vueuse/core";
@@ -99,5 +99,5 @@ const { routerArray1, newimg, routerArray2, routerArray3, logoname } =
   productStore;
 watch(y, (v) => {});
 
-const logo = ref(img1);
+
 </script>
