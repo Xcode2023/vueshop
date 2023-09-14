@@ -35,6 +35,12 @@ const i18n = createI18n({
 
   
 const app = createApp(App);
+// const changeLocal=(x)=>{
+//   i18n.global.locale.value = x
+
+// }
+// console.log(i18n.global.locale);
+
 app.config.globalProperties.axios = axios;
 // app.use(TDesign);
 app.use(createPinia());
