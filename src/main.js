@@ -32,7 +32,7 @@ const i18n = createI18n({
       zh: zh 
     }
   })
-
+  // npm config set registry https://registry.npmmirror.com
   
 const app = createApp(App);
 // const changeLocal=(x)=>{
